@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Show Issue Info
         run: |
-          echo Info: ${{ toJSON(github.event) }}
+          echo 'Info: ${{ toJSON(github.event) }}'
