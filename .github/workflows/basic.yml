@@ -1,0 +1,30 @@
+name: Basic
+
+on: push
+
+jobs:
+  validate-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download code
+        uses: actions/checkbout@v3
+
+      - name: Install dependencies
+        runs: npm install
+
+      - name: Run lint
+        runs: npm run lint
+
+      - name: Run tests
+        runs: npm run test
+
+      - name: Run build
+        runs: npm run build
+
+  deploy-code:
+    needs: validate-code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy code
+        runs: |
+          echo "Deploying..."
