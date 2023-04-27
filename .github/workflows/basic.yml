@@ -10,21 +10,21 @@ jobs:
         uses: actions/checkbout@v3
 
       - name: Install dependencies
-        runs: npm install
+        run: npm install
 
       - name: Run lint
-        runs: npm run lint
+        run: npm run lint
 
       - name: Run tests
-        runs: npm run test
+        run: npm run test
 
       - name: Run build
-        runs: npm run build
+        run: npm run build
 
   deploy-code:
     needs: validate-code
     runs-on: ubuntu-latest
     steps:
       - name: Deploy code
-        runs: |
+        run: |
           echo "Deploying..."
